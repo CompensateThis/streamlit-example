@@ -1,5 +1,5 @@
 import random
- 
+
 import numpy
 import streamlit as st
 import pandas as pd
@@ -22,10 +22,6 @@ def main():
     st.image("intro.png")  # Add the path to your image file here
 
     # Add the author picture
-    author_image = "photo_5269480532511674295_y.jpg"  # Add the path to your author picture file here
-    st.sidebar.text("Сделано Ильей Осиповым")
-    st.sidebar.image(author_image, use_column_width=True)
-
     st.sidebar.header("Пользовательский ввод")
     st.sidebar.write("### Загрузите Excel файл")
     test_size = st.sidebar.slider("Выборка вопросов для модели", 0.1, 0.5, 0.2, 0.1)
@@ -33,7 +29,10 @@ def main():
         "Максимальная степень полиномиальных признаков", 1, 5, 4, 1
     )
     uploaded_file = st.sidebar.file_uploader("Выберите Excel файл", type=["xlsx"])
-
+ 
+    author_image = "photo_5269480532511674295_y.jpg"  # Add the path to your author picture file here
+    st.sidebar.text("Сделано Ильей Осиповым")
+    st.sidebar.image(author_image, use_column_width=True)
     if uploaded_file is not None:
         df = pd.read_excel(uploaded_file)
 
